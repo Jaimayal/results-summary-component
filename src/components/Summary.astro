@@ -1,0 +1,56 @@
+---
+import CategoryResult from "./CategoryResult.astro";
+import ContinueButton from "./ContinueButton.astro";
+const { stats } = Astro.props;
+---
+
+<style>
+	.summary {
+		width: 29rem;
+		height: 41rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 3.5rem;
+		justify-content: space-between;
+	}
+
+	.summary-title {
+		font-size: 1.8rem;
+		color: #1a1a36;
+		align-self: start;
+		font-weight: 600;
+		margin-bottom: 1.5rem;
+	}
+
+	@media only screen and (max-width: 600px) {
+		.summary {
+			width: 100%;
+            flex-grow: 1;
+		}
+	}
+</style>
+
+<div class="summary">
+	<h2 class="summary-title">Summary</h2>
+	{
+		stats.map((stat, i) => {
+			const classNames = {
+				0: "category-result u-red",
+				1: "category-result u-yellow",
+				2: "category-result u-green",
+				3: "category-result u-blue",
+			};
+
+			return (
+				<CategoryResult
+					score={stat.score}
+					icon={stat.icon}
+					name={stat.category}
+					className={classNames[i]}
+				/>
+			);
+		})
+	}
+	<ContinueButton />
+</div>

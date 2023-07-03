@@ -1,0 +1,82 @@
+---
+const { score, percentile } = Astro.props;
+---
+
+<style>
+	.card {
+		background-image: linear-gradient(to bottom, #6743ff, #312cea);
+		border-radius: 2.5rem;
+		width: 29rem;
+		height: 41rem;
+		color: #c7c7fc;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 3.5rem;
+	}
+
+	.card__title {
+		text-align: center;
+		font-size: 1.8rem;
+	}
+
+	.card__score {
+		background-image: linear-gradient(to bottom, #4d22ca, #4433f1);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		width: 16rem;
+		height: 16rem;
+		margin: 2.5rem 0;
+	}
+
+	.card__score--paragraph {
+		text-align: center;
+	}
+
+	.card__score--calculated {
+		font-size: 5.5rem;
+		color: #fff;
+		font-weight: 800;
+		display: block;
+	}
+
+	.card__verdict {
+		font-size: 3rem;
+		font-weight: 600;
+		color: #fff;
+	}
+
+	.card__description {
+		font-size: 1.6rem;
+		text-align: center;
+		margin-top: 1.5rem;
+	}
+
+	@media only screen and (max-width: 600px) {
+		.card {
+			width: 100%;
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+		}
+
+		.card__description {
+			font-size: 1.8rem;
+		}
+	}
+</style>
+
+<div class="card">
+	<h2 class="card__title">Your Result</h2>
+	<div class="card__score">
+		<p class="card__score--paragraph">
+			<span class="card__score--calculated">{score}</span>of 100
+		</p>
+	</div>
+	<p class="card__verdict">Great</p>
+	<p class="card__description">
+		You scored higher than {percentile}% of the people who have taken these
+		tests.
+	</p>
+</div>

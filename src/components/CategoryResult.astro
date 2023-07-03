@@ -1,0 +1,57 @@
+---
+const { name, icon, score, className } = Astro.props;
+---
+
+<style>
+	.category-result {
+		display: grid;
+		width: 100%;
+		grid-template-columns: 15% 60% 25%;
+		margin: 1rem 0;
+		padding: 1rem;
+		font-size: 1.8rem;
+	}
+
+	.category__name {
+		align-self: center;
+	}
+
+	.category__score {
+		font-size: 1.2rem;
+		align-self: center;
+		justify-self: end;
+		color: black;
+	}
+
+	.category__score--result {
+		font-weight: 600;
+	}
+
+	.u-red {
+		color: #d5615a;
+		background-color: #fff6f5;
+	}
+
+	.u-yellow {
+		color: #e8b046;
+		background-color: #fffbf2;
+	}
+
+	.u-green {
+		color: #33af8b;
+		background-color: #f2fbfa;
+	}
+
+	.u-blue {
+		color: #1b2a87;
+		background-color: #f3f3fd;
+	}
+</style>
+
+<div class={className}>
+	<img src={icon} class="category__icon" />
+	<h5 class="category__name">{name}</h5>
+	<p class="category__score">
+		<span class="category__score--result">{score}</span> / 100
+	</p>
+</div>
