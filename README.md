@@ -56,6 +56,39 @@ You can also add client interactivity using old \<script\> tags. By using astro,
 Here is an example of a simple Astro Component that shows the described concepts:
 
 ```html
+---
+import CategoryResult from "./CategoryResult.astro";
+import ContinueButton from "./ContinueButton.astro";
+const { stats } = Astro.props;
+---
+
+<style>
+	.summary {
+		width: 29rem;
+		height: 41rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 3.5rem;
+		justify-content: space-between;
+	}
+
+	.summary-title {
+		font-size: 1.8rem;
+		color: #1a1a36;
+		align-self: start;
+		font-weight: 600;
+		margin-bottom: 1.5rem;
+	}
+
+	@media only screen and (max-width: 600px) {
+		.summary {
+			width: 100%;
+            flex-grow: 1;
+		}
+	}
+</style>
+
 <div class="summary">
 	<h2 class="summary-title">Summary</h2>
 	{
@@ -79,6 +112,7 @@ Here is an example of a simple Astro Component that shows the described concepts
 	}
 	<ContinueButton />
 </div>
+
 ```
 
 ### Useful resources
