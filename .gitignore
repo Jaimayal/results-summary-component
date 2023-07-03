@@ -21,3 +21,5 @@ pnpm-debug.log*
 .DS_Store
 
 .vscode/
+README-template.md
+style-guide.md
